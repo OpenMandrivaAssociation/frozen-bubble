@@ -1,6 +1,6 @@
 %define name    frozen-bubble
 %define version 2.1.0
-%define release %mkrel 2
+%define release %mkrel 3
 %define title       Frozen Bubble
 %define longtitle   Frozen Bubble arcade game
 
@@ -57,17 +57,6 @@ rm -rf %{buildroot}
 make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} BINDIR=%{_gamesbindir} MANDIR=%{_mandir} LOCALEDIR=%{_datadir}/locale
 rm -f %{buildroot}/%{_gamesdatadir}/frozen-bubble/gfx/shoot/create.pl
 
-mkdir -p %{buildroot}/%{_menudir}
-cat << EOF > %{buildroot}/%{_menudir}/%{name}
-?package(%{name}): \
-    command="%{_gamesbindir}/frozen-bubble" \
-    icon="%{name}.png" \
-    needs="X11" \
-    section="Amusement/Arcade" \
-    title="%{title}" \
-    longtitle="%{longtitle}" \
-    xdg="true"
-EOF
 
 install -d -m 755 %{buildroot}%{_datadir}/applications
 cat >  %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -79,7 +68,7 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=false
-Categories=X-MandrivaLinux-MoreApplications-Games-Arcade;Game;ArcadeGame;
+Categories=Game;ArcadeGame;
 EOF
 
 install -m 644 icons/frozen-bubble-icon-16x16.png -D %{buildroot}%{_miconsdir}/%{name}.png
@@ -110,7 +99,6 @@ rm -rf %{buildroot}
 %{perl_vendorarch}/auto/*
 %{perl_vendorarch}/*.pm
 %{_mandir}/*/*
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/*.png
 %{_miconsdir}/*.png
