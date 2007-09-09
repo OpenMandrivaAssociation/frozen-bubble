@@ -1,6 +1,3 @@
-%define name    frozen-bubble
-%define version 2.1.0
-%define release %mkrel 3
 %define title       Frozen Bubble
 %define longtitle   Frozen Bubble arcade game
 
@@ -8,9 +5,9 @@
 #  server package, with initscript, for people wanting to have a complete
 #   server
 #  zeroconf integration, with this initscript ( and in konqueror )
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
+Name:           frozen-bubble
+Version:        2.1.0
+Release:        %mkrel 4
 Summary:        Frozen Bubble arcade game
 License:        GPL
 Group:          Games/Arcade
