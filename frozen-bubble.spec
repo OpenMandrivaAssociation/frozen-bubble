@@ -7,9 +7,9 @@
 #  zeroconf integration, with this initscript ( and in konqueror )
 Name:           frozen-bubble
 Version:        2.1.0
-Release:        %mkrel 4
+Release:        %mkrel 5
 Summary:        Frozen Bubble arcade game
-License:        GPL
+License:        GPLv2+
 Group:          Games/Arcade
 URL:            http://www.frozen-bubble.org/
 Source:         http://www.frozen-bubble.org/data/%{name}-%{version}.tar.bz2
@@ -25,11 +25,11 @@ BuildRequires:  SDL_Pango-devel
 BuildRequires:  glib2-devel
 
 %description
-Colorful 3D rendered penguin animations, 100 levels of 1p game,
-hours and hours of 2p game, nights and nights of 2p/3p/4p/5p game
-over LAN or Internet, a level-editor, 3 professional quality
-digital soundtracks, 15 stereo sound effects, 8 unique graphical
-transition effects, 8 unique logo eye-candies.
+A Puzzle Bobble / Bust-a-Move like game featuring colorful 3D rendered
+penguin animations, 100 levels, local and Internet-based multiplayer,
+a level editor, 3 professional quality digital soundtracks, 15 stereo
+sound effects, 8 unique graphical transition effects, 8 unique logo
+eye-candies.
 
 
 %package server-common
@@ -39,9 +39,9 @@ Conflicts: %name < 2.1
 
 
 %description server-common
-This package only contains the server of Frozen bubble, for people
+This package only contains the server of Frozen Bubble, for people
 wanting to host a multiplayer server on their computer without installing
-the whole game. If you wish to play, install frozen-bubble.
+the whole game. If you wish to play the game, install frozen-bubble.
 
 %prep
 %setup -q
@@ -68,9 +68,9 @@ StartupNotify=false
 Categories=Game;ArcadeGame;
 EOF
 
-install -m 644 icons/frozen-bubble-icon-16x16.png -D %{buildroot}%{_miconsdir}/%{name}.png
-install -m 644 icons/frozen-bubble-icon-32x32.png -D %{buildroot}%{_iconsdir}/%{name}.png
-install -m 644 icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_liconsdir}/%{name}.png
+install -m 644 icons/frozen-bubble-icon-16x16.png -D %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+install -m 644 icons/frozen-bubble-icon-32x32.png -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -m 644 icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 %find_lang %{name}
 
 %clean
@@ -78,11 +78,11 @@ rm -rf %{buildroot}
 
 %post
 %{update_menus}
+%{update_icon_cache hicolor}
 
 %postun
 %{clean_menus}
-
-
+%{clean_icon_cache hicolor}
 
 %files  server-common 
 %defattr(-, root, root)
@@ -90,15 +90,12 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-, root, root)
-%doc README COPYING AUTHORS NEWS TIPS
+%doc README AUTHORS NEWS TIPS
 %{_gamesbindir}/*
 %{_gamesdatadir}/%{name}
 %{perl_vendorarch}/auto/*
 %{perl_vendorarch}/*.pm
 %{_mandir}/*/*
 %{_datadir}/applications/mandriva-%{name}.desktop
-%{_iconsdir}/*.png
-%{_miconsdir}/*.png
-%{_liconsdir}/*.png
-
+%{_iconsdir}/hicolor/*/apps/%{name}.png
 
