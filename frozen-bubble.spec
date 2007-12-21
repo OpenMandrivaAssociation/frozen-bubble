@@ -19,6 +19,7 @@ BuildRequires:  libSDL_mixer-devel >= 1.2.2
 BuildRequires:  libsmpeg-devel
 BuildRequires:  perl-SDL
 BuildRequires:  perl-devel
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 BuildRequires:  libSDL_mixer-devel >= 1.2.2 
 BuildRequires:  SDL_Pango-devel 
 BuildRequires:  glib2-devel
