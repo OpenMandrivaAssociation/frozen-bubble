@@ -76,13 +76,17 @@ install -m 644 icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_iconsdir}/hi
 %clean
 rm -rf %{buildroot}
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %{update_icon_cache hicolor}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %{clean_icon_cache hicolor}
+%endif
 
 %files  server-common 
 %defattr(-, root, root)
