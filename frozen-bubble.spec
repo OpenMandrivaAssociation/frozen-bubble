@@ -46,7 +46,7 @@ the whole game. If you wish to play the game, install frozen-bubble.
 %setup -q
 
 %build
-%make OPTIMIZE="%{optflags}" CFLAGS="%{optflags} `pkg-config glib-2.0 --cflags`" LIBS="`pkg-config glib-2.0 --libs`" LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} INSTALLDIRS=vendor
+%make OPTIMIZE="%{optflags}" CFLAGS="%{optflags} `pkg-config glib-2.0 --cflags`" LIBS="`pkg-config glib-2.0 --libs`" LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} INSTALLDIRS=vendor PREFIX=%{_prefix}
 
 %install
 rm -rf %{buildroot}
