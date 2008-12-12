@@ -1,28 +1,28 @@
-%define title       Frozen Bubble
-%define longtitle   Frozen Bubble arcade game
+%define title		Frozen Bubble
+%define longtitle	Frozen Bubble arcade game
 
 # TODO 
 #  server package, with initscript, for people wanting to have a complete
 #   server
 #  zeroconf integration, with this initscript ( and in konqueror )
-Name:           frozen-bubble
-Version:        2.1.0
-Release:        %mkrel 7
-Summary:        Frozen Bubble arcade game
-License:        GPLv2+
-Group:          Games/Arcade
-URL:            http://www.frozen-bubble.org/
-Source:         http://www.frozen-bubble.org/data/%{name}-%{version}.tar.bz2
-Requires:       perl-SDL >= 1.18
-Requires:       %{name}-server-common
-BuildRequires:  libSDL_mixer-devel >= 1.2.2
-BuildRequires:  libsmpeg-devel
-BuildRequires:  perl-SDL
-BuildRequires:  perl-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}
-BuildRequires:  libSDL_mixer-devel >= 1.2.2 
-BuildRequires:  SDL_Pango-devel 
-BuildRequires:  glib2-devel
+Name:		frozen-bubble
+Version:	2.2.0
+Release:	%mkrel 1
+Summary:	Frozen Bubble arcade game
+License:	GPLv2+
+Group:		Games/Arcade
+URL:		http://www.frozen-bubble.org/
+Source:		http://www.frozen-bubble.org/data/%{name}-%{version}.tar.bz2
+Requires:	perl-SDL >= 1.18
+Requires:	%{name}-server-common = %{version}-%{release}
+BuildRequires:	libSDL_mixer-devel >= 1.2.2
+BuildRequires:	libSDL_image-devel
+BuildRequires:	libsmpeg-devel
+BuildRequires:	perl-SDL
+BuildRequires:	perl-devel
+BuildRequires:	SDL_Pango-devel 
+BuildRequires:	glib2-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 A Puzzle Bobble / Bust-a-Move like game featuring colorful 3D rendered
@@ -33,10 +33,9 @@ eye-candies.
 
 
 %package server-common
-Summary: Frozen bubble server, used for multiplayer game
-Group: Games/Arcade
-Conflicts: %name < 2.1
-
+Summary:	Frozen bubble server, used for multiplayer game
+Group:		Games/Arcade
+Conflicts:	%{name} < 2.1
 
 %description server-common
 This package only contains the server of Frozen Bubble, for people
@@ -47,13 +46,12 @@ the whole game. If you wish to play the game, install frozen-bubble.
 %setup -q
 
 %build
-make OPTIMIZE="$RPM_OPT_FLAGS" CFLAGS="$RPM_OPT_FLAGS `pkg-config glib-2.0 --cflags`" LIBS="`pkg-config glib-2.0 --libs`" LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} INSTALLDIRS=vendor
+%make OPTIMIZE="%{optflags}" CFLAGS="%{optflags} `pkg-config glib-2.0 --cflags`" LIBS="`pkg-config glib-2.0 --libs`" LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} INSTALLDIRS=vendor
 
 %install
 rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} BINDIR=%{_gamesbindir} MANDIR=%{_mandir} LOCALEDIR=%{_datadir}/locale
+%makeinstall_std DESTDIR=%{buildroot} LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} BINDIR=%{_gamesbindir} MANDIR=%{_mandir} LOCALEDIR=%{_datadir}/locale
 rm -f %{buildroot}/%{_gamesdatadir}/frozen-bubble/gfx/shoot/create.pl
-
 
 install -d -m 755 %{buildroot}%{_datadir}/applications
 cat >  %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -88,7 +86,7 @@ rm -rf %{buildroot}
 %{clean_icon_cache hicolor}
 %endif
 
-%files  server-common 
+%files server-common 
 %defattr(-, root, root)
 %{_libdir}/%{name}
 
@@ -102,4 +100,3 @@ rm -rf %{buildroot}
 %{_mandir}/*/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.png
-
