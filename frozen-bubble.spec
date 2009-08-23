@@ -7,12 +7,13 @@
 #  zeroconf integration, with this initscript ( and in konqueror )
 Name:		frozen-bubble
 Version:	2.2.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Frozen Bubble arcade game
 License:	GPLv2+
 Group:		Games/Arcade
 URL:		http://www.frozen-bubble.org/
 Source:		http://www.frozen-bubble.org/data/%{name}-%{version}.tar.bz2
+Patch0:     frozen-bubble-2.2.0-fix_new_sdl.diff
 Requires:	perl-SDL >= 1.18
 Requires:	%{name}-server-common = %{version}-%{release}
 BuildRequires:	libSDL_mixer-devel >= 1.2.2
@@ -44,6 +45,7 @@ the whole game. If you wish to play the game, install frozen-bubble.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %make OPTIMIZE="%{optflags}" CFLAGS="%{optflags} `pkg-config glib-2.0 --cflags`" LIBS="`pkg-config glib-2.0 --libs`" LIBDIR=%{_libdir} DATADIR=%{_gamesdatadir} INSTALLDIRS=vendor PREFIX=%{_prefix}
