@@ -22,6 +22,7 @@ BuildRequires:	glib2-devel
 BuildRequires:	libSDL_image-devel
 BuildRequires:	libSDL_mixer-devel >= 1.2.2
 BuildRequires:	libsmpeg-devel
+BuildRequires:	perl(Alien::SDL)
 BuildRequires:	perl(SDL)          >= 2.400.0
 BuildRequires:	perl-devel
 BuildRequires:	SDL_Pango-devel 
