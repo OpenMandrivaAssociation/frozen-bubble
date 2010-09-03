@@ -23,7 +23,13 @@ BuildRequires:	libSDL_image-devel
 BuildRequires:	libSDL_mixer-devel >= 1.2.2
 BuildRequires:	libsmpeg-devel
 BuildRequires:	perl(Alien::SDL)
+BuildRequires:	perl(Archive::Extract)
+BuildRequires:  perl(Compress::Bzip2)
+BuildRequires:  perl(IPC::System::Simple)
+BuildRequires:  perl(Locale::Maketext::Extract)
 BuildRequires:	perl(SDL)          >= 2.400.0
+BuildRequires:  perl(autodie)
+BuildRequires:  perl(parent)
 BuildRequires:	perl-devel
 BuildRequires:	SDL_Pango-devel 
 
