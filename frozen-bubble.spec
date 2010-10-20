@@ -10,7 +10,7 @@
 #  zeroconf integration, with this initscript ( and in konqueror )
 Name:		frozen-bubble
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 
 Summary:	Frozen Bubble arcade game
 License:	GPLv2+
@@ -65,7 +65,7 @@ cat >  %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=%{title}
 Comment=%{longtitle}
-Exec=%{_gamesbindir}/%{name}
+Exec=%{name}
 Icon=%{name}
 Terminal=false
 Type=Application
