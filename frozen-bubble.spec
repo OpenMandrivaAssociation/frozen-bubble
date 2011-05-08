@@ -30,6 +30,7 @@ BuildRequires:  perl(Locale::Maketext::Extract)
 BuildRequires:	perl(SDL)          >= 2.400.0
 BuildRequires:  perl(autodie)
 BuildRequires:  perl(parent)
+BuildRequires:	perl(Module::Build)
 BuildRequires:	perl-devel
 BuildRequires:	SDL_Pango-devel 
 
