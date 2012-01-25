@@ -10,7 +10,7 @@
 #  zeroconf integration, with this initscript ( and in konqueror )
 Name:		frozen-bubble
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 3
+Release:	4
 
 Summary:	Frozen Bubble arcade game
 License:	GPLv2+
