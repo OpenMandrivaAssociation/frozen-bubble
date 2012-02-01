@@ -1,9 +1,6 @@
 %define	module	Games-FrozenBubble
 %define upstream_version 2.212
 
-%define title		Frozen Bubble
-%define longtitle	Frozen Bubble arcade game
-
 # TODO 
 #  server package, with initscript, for people wanting to have a complete
 #   server
@@ -56,13 +53,13 @@ eye-candies.
 
 %install
 ./Build install destdir=%{buildroot}
-rm -f %{buildroot}/%{_gamesdatadir}/frozen-bubble/gfx/shoot/create.pl
+rm -f %{buildroot}%{_gamesdatadir}/frozen-bubble/gfx/shoot/create.pl
 
 install -d -m 755 %{buildroot}%{_datadir}/applications
-cat >  %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Name=%{title}
-Comment=%{longtitle}
+Name=Frozen Bubble
+Comment=Frozen Bubble arcade game
 Exec=%{name}
 Icon=%{name}
 Terminal=false
