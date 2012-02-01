@@ -77,7 +77,8 @@ EOF
 install -m 644 share/icons/frozen-bubble-icon-16x16.png -D %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 install -m 644 share/icons/frozen-bubble-icon-32x32.png -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 install -m 644 share/icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
-%find_lang %{name}
+# language files not located in standard location, so let's screw it for now..
+#%find_lang %{name}
 
 %clean
 rm -rf %{buildroot}
@@ -94,7 +95,8 @@ rm -rf %{buildroot}
 %{clean_icon_cache hicolor}
 %endif
 
-%files -f %{name}.lang
+%files
+#-f %{name}.lang
 %defattr(-, root, root)
 %doc README AUTHORS COPYING META.yml HISTORY
 %{_bindir}/*
