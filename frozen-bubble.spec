@@ -80,7 +80,7 @@ install -m 644 share/icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_iconsd
 
 %files
 #-f %{name}.lang
-%doc README AUTHORS COPYING META.yml HISTORY
+%doc README AUTHORS META.yml HISTORY
 %{_bindir}/*
 #{_gamesdatadir}/%{name}
 #{perl_vendorlib}/*
