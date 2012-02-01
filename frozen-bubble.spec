@@ -1,4 +1,4 @@
-%define upstream_name    Games-FrozenBubble
+%define	module	Games-FrozenBubble
 %define upstream_version 2.212
 
 %define title		Frozen Bubble
@@ -16,7 +16,7 @@ Summary:	Frozen Bubble arcade game
 License:	GPLv2+
 Group:		Games/Arcade
 Url:		http://www.frozen-bubble.org/
-Source:     http://www.frozen-bubble.org/data/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.frozen-bubble.org/data/%{module}-%{upstream_version}.tar.gz
 
 BuildRequires:	glib2-devel
 BuildRequires:	libSDL_image-devel
@@ -34,8 +34,6 @@ BuildRequires:	perl(Module::Build)
 BuildRequires:	perl-devel
 BuildRequires:	SDL_Pango-devel 
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
-
 Requires:	perl-SDL >= 2.400.0
 
 %description
@@ -47,7 +45,7 @@ eye-candies.
 
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{module}-%{upstream_version}
 
 %build
 %{__perl} Build.PL installdirs=vendor
@@ -80,24 +78,8 @@ install -m 644 share/icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_iconsd
 # language files not located in standard location, so let's screw it for now..
 #%find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_icon_cache hicolor}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_icon_cache hicolor}
-%endif
-
 %files
 #-f %{name}.lang
-%defattr(-, root, root)
 %doc README AUTHORS COPYING META.yml HISTORY
 %{_bindir}/*
 #{_gamesdatadir}/%{name}
