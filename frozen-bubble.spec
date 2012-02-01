@@ -55,7 +55,6 @@ eye-candies.
 ./Build test
 
 %install
-%{__rm} -rf %{buildroot}
 ./Build install destdir=%{buildroot}
 rm -f %{buildroot}/%{_gamesdatadir}/frozen-bubble/gfx/shoot/create.pl
 
