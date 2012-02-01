@@ -18,9 +18,9 @@ Group:		Games/Arcade
 Url:		http://www.frozen-bubble.org/
 Source0:	http://www.frozen-bubble.org/data/%{module}-%{upstream_version}.tar.gz
 
-BuildRequires:	glib2-devel
-BuildRequires:	libSDL_image-devel
-BuildRequires:	libSDL_mixer-devel >= 1.2.2
+BuildRequires:	pkgconfig(glib-2.0) 
+BuildRequires:	pkgconfig(SDL_image)
+BuildRequires:	pkgconfig(SDL_mixer) >= 1.2.2
 BuildRequires:	libsmpeg-devel
 BuildRequires:	perl(Alien::SDL)
 BuildRequires:	perl(Archive::Extract)
@@ -32,7 +32,7 @@ BuildRequires:  perl(autodie)
 BuildRequires:  perl(parent)
 BuildRequires:	perl(Module::Build)
 BuildRequires:	perl-devel
-BuildRequires:	SDL_Pango-devel 
+BuildRequires:	pkgconfig(SDL_Pango)
 
 Requires:	perl-SDL >= 2.400.0
 
