@@ -7,7 +7,7 @@
 #  zeroconf integration, with this initscript ( and in konqueror )
 Name:		frozen-bubble
 Version:	%perl_convert_version %{upstream_version}
-Release:	7
+Release:	8
 
 Summary:	Frozen Bubble arcade game
 License:	GPLv2+
@@ -46,6 +46,7 @@ eye-candies.
 %setup -q -n %{module}-%{upstream_version}
 
 %build
+export CFLAGS="%{optflags} -Wno-error=unused-result"
 %{__perl} Build.PL installdirs=vendor
 ./Build
 
