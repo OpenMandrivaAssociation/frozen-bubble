@@ -59,7 +59,9 @@ install -d -m 755 %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Frozen Bubble
+Name[ru]=Frozen Bubble
 Comment=Frozen Bubble arcade game
+Comment[ru]=Игра Frozen Bubble
 Exec=%{name}
 Icon=%{name}
 Terminal=false
