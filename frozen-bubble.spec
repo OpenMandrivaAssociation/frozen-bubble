@@ -44,7 +44,7 @@ eye-candies.
 %setup -qn %{module}-%{upstream_version}
 
 %build
-export CFLAGS="%{optflags} -Wno-error=unused-result"
+export CFLAGS="%{optflags} -Wno-error"
 perl Build.PL installdirs=vendor
 ./Build
 
