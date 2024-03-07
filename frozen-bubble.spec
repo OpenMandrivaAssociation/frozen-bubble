@@ -31,6 +31,7 @@ BuildRequires:	perl(autodie)
 BuildRequires:	perl(parent)
 BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(ExtUtils::CBuilder)
+BuildRequires:	perl(Test::More)
 Requires:	perl-SDL >= 2.400.0
 Requires:	perl(Compress::Bzip2)
 
