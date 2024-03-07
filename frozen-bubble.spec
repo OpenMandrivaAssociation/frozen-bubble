@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(SDL_mixer) >= 1.2.2
 BuildRequires:	perl(Alien::SDL)
 BuildRequires:	perl(Archive::Extract)
 BuildRequires:	perl(Compress::Bzip2)
+BuildRequires:	perl(File::Slurp)
 BuildRequires:	perl(IPC::System::Simple)
 BuildRequires:	perl(Locale::Maketext::Extract)
 BuildRequires:	perl(SDL) >= 2.400.0
