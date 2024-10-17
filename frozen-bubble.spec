@@ -11,7 +11,7 @@ Version:	%perl_convert_version %{upstream_version}
 Release:	21
 License:	GPLv2+
 Group:		Games/Arcade
-Url:		http://www.frozen-bubble.org/
+Url:		https://www.frozen-bubble.org/
 Source0:	https://cpan.metacpan.org/authors/id/K/KT/KTHAKORE/%{module}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
