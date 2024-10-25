@@ -8,7 +8,7 @@
 Summary:	Frozen Bubble arcade game
 Name:		frozen-bubble
 Version:	%perl_convert_version %{upstream_version}
-Release:	21
+Release:	22
 License:	GPLv2+
 Group:		Games/Arcade
 Url:		https://www.frozen-bubble.org/
