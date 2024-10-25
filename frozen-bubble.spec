@@ -1,5 +1,5 @@
 %define	module	Games-FrozenBubble
-%define upstream_version 2.212
+%define version 2.212
 
 # TODO 
 #  server package, with initscript, for people wanting to have a complete
@@ -7,12 +7,12 @@
 #  zeroconf integration, with this initscript ( and in konqueror )
 Summary:	Frozen Bubble arcade game
 Name:		frozen-bubble
-Version:	%perl_convert_version %{upstream_version}
-Release:	22
+Version:	%{version}
+Release:	1
 License:	GPLv2+
 Group:		Games/Arcade
 Url:		https://www.frozen-bubble.org/
-Source0:	https://cpan.metacpan.org/authors/id/K/KT/KTHAKORE/%{module}-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/K/KT/KTHAKORE/%{module}-%{version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	smpeg-devel
@@ -26,13 +26,13 @@ BuildRequires:	perl(Compress::Bzip2)
 BuildRequires:	perl(File::Slurp)
 BuildRequires:	perl(IPC::System::Simple)
 BuildRequires:	perl(Locale::Maketext::Extract)
-BuildRequires:	perl(SDL) >= 2.400.0
+BuildRequires:	perl(SDL)
 BuildRequires:	perl(autodie)
 BuildRequires:	perl(parent)
 BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(ExtUtils::CBuilder)
 BuildRequires:	perl(Test::More)
-Requires:	perl-SDL >= 2.400.0
+Requires:	perl-SDL
 Requires:	perl(Compress::Bzip2)
 
 %description
@@ -44,7 +44,7 @@ eye-candies.
 
 
 %prep
-%setup -qn %{module}-%{upstream_version}
+%autosetup -p1 -n %{module}-%{version}
 
 %build
 export CFLAGS="%{optflags} -Wno-error"
@@ -90,4 +90,3 @@ install -m 644 share/icons/frozen-bubble-icon-48x48.png -D %{buildroot}%{_iconsd
 %{_mandir}/*/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/%{name}.png
-
