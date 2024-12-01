@@ -13,7 +13,7 @@ License:	GPLv2+
 Group:		Games/Arcade
 Url:		https://www.frozen-bubble.org/
 Source0:	https://cpan.metacpan.org/authors/id/K/KT/KTHAKORE/%{module}-%{version}.tar.gz
-
+Patch1:		frozen-bubble-2.2.1-Use-true-number-instead-of-quoted-version-number.patch
 BuildRequires:	perl-devel
 BuildRequires:	smpeg-devel
 BuildRequires:	pkgconfig(glib-2.0)
